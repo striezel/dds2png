@@ -27,7 +27,7 @@ namespace dds2png
 {
 
 /** \brief version information */
-const std::string version = "version 0.1.0, 2021-02-27";
+const std::string version = "version 0.1.1, 2021-02-27";
 
 /** \brief Gets the DevIL version with which the executable was compiled.
  *

@@ -1,3 +1,9 @@
+dds2png (0.1.1-1) UNRELEASED; urgency=medium
+
+  * Fix build dependency for Debian packages.
+
+ -- Dirk Stolle <striezel-dev@web.de>  Sat, 27 Feb 2021 18:33:21 +0100
+
 dds2png (0.1.0-1) UNRELEASED; urgency=medium
 
   * Initial release
