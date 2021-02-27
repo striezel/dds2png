@@ -1,0 +1,27 @@
+image: debian:10-slim
+
+# Build with GCC / G++.
+build_gcc:
+  stage: build
+  before_script:
+    - apt-get update && apt-get -y install catch cmake g++ libdevil-dev pkg-config
+    - export CC=gcc && export CXX=g++
+  script:
+    - mkdir ./build
+    - cd ./build
+    - cmake ../
+    - make -j4
+    - ctest -V
+
+# Build with Clang / Clang++.
+build_clang:
+  stage: build
+  before_script:
+    - apt-get update && apt-get -y install catch clang cmake libdevil-dev pkg-config
+    - export CC=clang && export CXX=clang++
+  script:
+    - mkdir ./build
+    - cd ./build
+    - cmake ../
+    - make -j4
+    - ctest -V
