@@ -67,6 +67,10 @@ If you want to run the test suite, too, then there is one more step:
       -i FILE | --input FILE  - sets the file name of the DDS file to convert.
       -o FILE | --output FILE - sets the file name of the PNG file to produce.
 
+## History of changes
+
+A changelog is provided as [separate file](./changelog.md).
+
 ## Copyright and Licensing
 
 Copyright 2021  Dirk Stolle
