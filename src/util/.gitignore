@@ -1,0 +1,3 @@
+# Ignore GitInfos.cpp, because it is generated from template during the CMake
+# build process.
+GitInfos.cpp
