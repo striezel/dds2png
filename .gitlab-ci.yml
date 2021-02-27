@@ -25,3 +25,17 @@ build_clang:
     - cmake ../
     - make -j4
     - ctest -V
+
+# Debian package creation
+package_debian10:
+  image: debian:10
+  stage: build
+  before_script:
+    - ./ci/gitlab-01-install-dependencies.sh
+  script:
+    - ./ci/gitlab-02-create-package.sh
+  only:
+    - tags
+  artifacts:
+    paths:
+      - "dds2png*.deb"

@@ -1,0 +1,14 @@
+Source: dds2png
+Section: unknown
+Priority: optional
+Maintainer: Dirk Stolle <striezel-dev@web.de>
+Build-Depends: debhelper (>= 9), catch, cmake, libdevil-dev (>= 1.7)
+Standards-Version: 4.1.2
+Homepage: https://gitlab.com/striezel/dds2png
+Vcs-Git: https://gitlab.com/striezel/dds2png.git
+
+Package: dds2png
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Converts DDS to PNG files
+ dds2png is a tool that converts DDS (DirectDraw Surface) files into PNG files.

@@ -1,0 +1,5 @@
+version=4
+
+# Direct Git
+opts="mode=git" https://gitlab.com/striezel/dds2png.git \
+   refs/tags/v([\d\.]+) debian uupdate
