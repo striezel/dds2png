@@ -1,5 +1,5 @@
-# Might work with earlier versions, too, but it's only tested with 2.8.9.
-cmake_minimum_required (VERSION 2.8)
+# We might support earlier versions, too, but try to use a more recent one.
+cmake_minimum_required (VERSION 3.8)
 
 project(dds2png)
 
@@ -8,10 +8,11 @@ set(dds2png_sources
     Version.cpp
     main.cpp)
 
-if (CMAKE_COMPILER_IS_GNUCC)
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_definitions (-Wall -O3 -fexceptions)
-endif (CMAKE_COMPILER_IS_GNUCC)
-add_definitions(-std=c++17)
+endif ()
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set( CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -s" )
 

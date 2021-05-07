@@ -20,7 +20,7 @@ It is still in an early stage of development.
 ### Prerequisites
 
 To build dds2png from source you need a C++ compiler with support for C++17,
-CMake 2.8 or later and the DevIL library. pkg-config is required to make it
+CMake 3.8 or later and the DevIL library. pkg-config is required to make it
 easier to find compiler options for the installed libraries.
 
 It also helps to have Git, a distributed version control system, on your build
