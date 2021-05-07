@@ -39,6 +39,7 @@ void showVersion()
 void showHelp()
 {
   std::cout << "dds2png [OPTIONS]\n"
+            << "dds2png -i file.dds -o file.png\n"
             << "\n"
             << "options:\n"
             << "  -? | --help             - shows this help message\n"
