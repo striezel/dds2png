@@ -60,6 +60,7 @@ If you want to run the test suite, too, then there is one more step:
 ## Usage
 
     dds2png [OPTIONS]
+    dds2png -i file.dds -o file.png
 
     options:
       -? | --help             - shows this help message
