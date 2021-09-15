@@ -12,8 +12,6 @@ It is still in an early stage of development.
   * [![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GitHub%20CI%20with%20GCC%208,%209,%2010/badge.svg)](https://github.com/striezel/dds2png/actions)
 * GitLab CI:
 [![GitLab pipeline status](https://gitlab.com/striezel/dds2png/badges/master/pipeline.svg)](https://gitlab.com/striezel/dds2png/)
-* Travis CI:
-[![Build Status](https://travis-ci.org/striezel/dds2png.svg?branch=master)](https://travis-ci.org/striezel/dds2png)
 
 ## Building from source
 
