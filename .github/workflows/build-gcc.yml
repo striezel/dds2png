@@ -3,63 +3,22 @@ name: GitHub CI with GCC 8, 9, 10
 on: push
 
 jobs:
-  build_ubuntu_20_04_gcc10:
+  build_ubuntu_gcc:
+    strategy:
+      matrix:
+        version: [8, 9, 10]
     runs-on: ubuntu-20.04
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install Debian packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends catch cmake g++-10 git libdevil-dev make pkg-config
-      - name: Build with GNU GCC 10
+          sudo apt-get install -y --no-install-recommends catch cmake g++-${{ matrix.version }} git libdevil-dev make pkg-config
+      - name: Build with GNU GCC ${{ matrix.version }}
         run: |
-          export CXX=g++-10
-          export CC=gcc-10
-          cd $GITHUB_WORKSPACE
-          mkdir build
-          cd build
-          cmake ../
-          make -j4
-      - name: Tests
-        run: |
-          cd "$GITHUB_WORKSPACE"/build
-          ctest -V
-  build_ubuntu_20_04_gcc9:
-    runs-on: ubuntu-20.04
-    steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v2
-      - name: Install Debian packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends catch cmake g++-9 git libdevil-dev make pkg-config
-      - name: Build with GNU GCC 9
-        run: |
-          export CXX=g++-9
-          export CC=gcc-9
-          cd $GITHUB_WORKSPACE
-          mkdir build
-          cd build
-          cmake ../
-          make -j4
-      - name: Tests
-        run: |
-          cd "$GITHUB_WORKSPACE"/build
-          ctest -V
-  build_ubuntu_18_04_gcc8:
-    runs-on: ubuntu-18.04
-    steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v2
-      - name: Install Debian packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends catch cmake g++-8 git libdevil-dev make pkg-config
-      - name: Build with GNU GCC 8
-        run: |
-          export CXX=g++-8
-          export CC=gcc-8
+          export CXX=g++-${{ matrix.version }}
+          export CC=gcc-${{ matrix.version }}
           cd $GITHUB_WORKSPACE
           mkdir build
           cd build
