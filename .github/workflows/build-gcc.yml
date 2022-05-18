@@ -1,4 +1,4 @@
-name: GitHub CI with GCC 8, 9, 10
+name: GCC
 
 on: push
 

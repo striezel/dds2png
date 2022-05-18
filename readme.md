@@ -8,8 +8,8 @@ It is still in an early stage of development.
 ## Build status
 
 * GitHub workflows:
-  * [![GitHub CI Clang status](https://github.com/striezel/dds2png/workflows/GitHub%20CI%20with%20Clang%208,%209,%2010/badge.svg)](https://github.com/striezel/dds2png/actions)
-  * [![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GitHub%20CI%20with%20GCC%208,%209,%2010/badge.svg)](https://github.com/striezel/dds2png/actions)
+  [![GitHub CI Clang status](https://github.com/striezel/dds2png/workflows/Clang/badge.svg)](https://github.com/striezel/dds2png/actions)
+  [![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GCC/badge.svg)](https://github.com/striezel/dds2png/actions)
 * GitLab CI:
 [![GitLab pipeline status](https://gitlab.com/striezel/dds2png/badges/master/pipeline.svg)](https://gitlab.com/striezel/dds2png/)
 
