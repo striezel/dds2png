@@ -1,7 +1,7 @@
 /*
  -------------------------------------------------------------------------------
     This file is part of dds2png.
-    Copyright (C) 2021  Dirk Stolle
+    Copyright (C) 2021, 2022  Dirk Stolle
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -166,7 +166,8 @@ int main(int argc, char** argv)
 
   const ILuint imageName = ilGenImage();
   ilBindImage(imageName);
-  const ILboolean loadSuccess = ilLoad(IL_DDS, input.c_str());
+  const auto input_as_string = input.string();
+  const ILboolean loadSuccess = ilLoad(IL_DDS, input_as_string.c_str());
   if (!loadSuccess)
   {
     std::cerr << "Error: Failed to load DDS from " << ddsFile << "!" << std::endl;
