@@ -14,8 +14,10 @@ add_test(NAME dds2png_help_question_mark
          COMMAND $<TARGET_FILE:dds2png> -?)
 
 # Windows-style help parameter "/?"
-add_test(NAME dds2png_help_question_mark_windows
-         COMMAND $<TARGET_FILE:dds2png> /?)
+if (NOT DEFINED ENV{GITHUB_ACTIONS} OR NOT MINGW)
+    add_test(NAME dds2png_help_question_mark_windows
+             COMMAND $<TARGET_FILE:dds2png> /?)
+endif ()
 
 # parameter to show version number
 add_test(NAME dds2png_version
