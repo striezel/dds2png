@@ -1,17 +1,13 @@
 # dds2png - a DDS to PNG converter
 
+[![GitHub CI Clang status](https://github.com/striezel/dds2png/workflows/Clang/badge.svg)](https://github.com/striezel/dds2png/actions)
+[![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GCC/badge.svg)](https://github.com/striezel/dds2png/actions)
+[![GitLab pipeline status](https://gitlab.com/striezel/dds2png/badges/master/pipeline.svg)](https://gitlab.com/striezel/dds2png/)
+
 dds2png is a command line tool that converts DDS (DirectDraw Surface) files into
 PNG files.
 
 It is still in an early stage of development.
-
-## Build status
-
-* GitHub workflows:
-  [![GitHub CI Clang status](https://github.com/striezel/dds2png/workflows/Clang/badge.svg)](https://github.com/striezel/dds2png/actions)
-  [![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GCC/badge.svg)](https://github.com/striezel/dds2png/actions)
-* GitLab CI:
-[![GitLab pipeline status](https://gitlab.com/striezel/dds2png/badges/master/pipeline.svg)](https://gitlab.com/striezel/dds2png/)
 
 ## Building from source
 
@@ -68,7 +64,7 @@ If you want to run the test suite, too, then there is one more step:
 
 ## History of changes
 
-A changelog is provided as [separate file](./changelog.md).
+A changelog is available in [changelog.md](./changelog.md).
 
 ## Copyright and Licensing
 

@@ -1,6 +1,6 @@
 # Contribution guidelines
 
-First off, thanks for taking the time to contribute! :tada::+1:
+First off, thanks for taking the time to contribute! :)
 
 The following is a set of guidelines for contributing to this project.
 These are not set in stone, but following these guidelines closely is usually
