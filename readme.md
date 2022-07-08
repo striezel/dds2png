@@ -2,6 +2,7 @@
 
 [![GitHub CI Clang status](https://github.com/striezel/dds2png/workflows/Clang/badge.svg)](https://github.com/striezel/dds2png/actions)
 [![GitHub CI GCC status](https://github.com/striezel/dds2png/workflows/GCC/badge.svg)](https://github.com/striezel/dds2png/actions)
+[![GitHub CI MSYS2 status](https://github.com/striezel/dds2png/workflows/MSYS2/badge.svg)](https://github.com/striezel/dds2png/actions)
 [![GitLab pipeline status](https://gitlab.com/striezel/dds2png/badges/master/pipeline.svg)](https://gitlab.com/striezel/dds2png/)
 
 dds2png is a command line tool that converts DDS (DirectDraw Surface) files into
@@ -50,6 +51,11 @@ Starting in the root directory of the source, you can do the following steps:
 If you want to run the test suite, too, then there is one more step:
 
     ctest -V
+
+## Building from source on Windows
+
+For information how to build dds2png on Windows, see the
+[build instructions for MSYS2](./documentation/msys2-build.md).
 
 ## Usage
 
