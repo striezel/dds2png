@@ -29,7 +29,7 @@ if (DevIL_FOUND)
   include_directories(${IL_INCLUDE_DIR})
   target_link_libraries (dds2png ${IL_LIBRARIES})
 else ()
-  message ( FATAL_ERROR "cURL was not found!" )
+  message ( FATAL_ERROR "DevIL was not found!" )
 endif (DevIL_FOUND)
 
 
