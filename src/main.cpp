@@ -93,7 +93,7 @@ int main(int argc, char** argv)
         else
         {
           std::cerr << "Error: You have to enter a file path after \""
-                    << param <<"\"." << std::endl;
+                    << param << "\"." << std::endl;
           return dds2png::rcInvalidParameter;
         }
       } // if input file
@@ -115,7 +115,7 @@ int main(int argc, char** argv)
         else
         {
           std::cerr << "Error: You have to enter a file path after \""
-                    << param <<"\"." << std::endl;
+                    << param << "\"." << std::endl;
           return dds2png::rcInvalidParameter;
         }
       } // if output file
@@ -130,12 +130,12 @@ int main(int argc, char** argv)
 
   if (ddsFile.empty())
   {
-    std::cerr << "Error: No input file is specified."   << std::endl;
+    std::cerr << "Error: No input file is specified." << std::endl;
     return dds2png::rcInvalidParameter;
   }
   if (pngFile.empty())
   {
-    std::cerr << "Error: No output file is specified."   << std::endl;
+    std::cerr << "Error: No output file is specified." << std::endl;
     return dds2png::rcInvalidParameter;
   }
 
@@ -149,8 +149,7 @@ int main(int argc, char** argv)
   }
   if (fs::exists(output))
   {
-    std::cerr << "Error: " << pngFile << " already exists!"
-              << std::endl;
+    std::cerr << "Error: " << pngFile << " already exists!" << std::endl;
     return dds2png::rcInputOutputError;
   }
 
