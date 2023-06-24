@@ -1,4 +1,4 @@
-# We might support earlier versions, too, but try to use a more recent one.
+# We might support earlier versions, too, but try to use a recent one.
 cmake_minimum_required (VERSION 3.8)
 
 project(dds2png)
@@ -18,9 +18,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(dds2png ${dds2png_sources})
 
-if (NOT MSVC)
-  # link static library for std::filesystem on GNU C++ compiler
+# GCC before 9.1.0 needs to link to libstdc++fs explicitly.
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "9.1.0")
   target_link_libraries(dds2png stdc++fs)
+endif ()
+
+# Clang before 9.0 needs to link to libc++fs explicitly.
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS "9.0")
+  if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "8.0")
+    # If we are on Clang 7.x, then the filesystem library from GCC is better.
+    target_link_libraries(dds2png stdc++fs)
+  else ()
+   # Use Clang's C++ filesystem library, it is recent enough.
+   target_link_libraries(dds2png c++fs)
+  endif ()
 endif ()
 
 # find DevIL

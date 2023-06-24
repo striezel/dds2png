@@ -8,6 +8,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - version: 7
+            os: ubuntu-20.04
           - version: 8
             os: ubuntu-20.04
           - version: 9
@@ -30,6 +32,10 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends cmake clang-${{ matrix.version }} git libdevil-dev make pkg-config
+      - name: Install LLVM C++ Standard Library
+        run: |
+          sudo apt-get install -y libc++-${{ matrix.version }}-dev
+        if: matrix.version == 8
       - name: Build with Clang ${{ matrix.version }}
         run: |
           export CXX=clang++-${{ matrix.version }}
