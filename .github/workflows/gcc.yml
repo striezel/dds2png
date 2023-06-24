@@ -3,18 +3,29 @@ name: GCC
 on: push
 
 jobs:
-  build_ubuntu_gcc:
+  gcc:
     strategy:
+      fail-fast: false
       matrix:
-        version: [8, 9, 10]
-    runs-on: ubuntu-20.04
+        include:
+          - version: 8
+            os: ubuntu-20.04
+          - version: 9
+            os: ubuntu-22.04
+          - version: 10
+            os: ubuntu-22.04
+          - version: 11
+            os: ubuntu-22.04
+          - version: 12
+            os: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v3
       - name: Install Debian packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends catch cmake g++-${{ matrix.version }} git libdevil-dev make pkg-config
+          sudo apt-get install -y --no-install-recommends cmake g++-${{ matrix.version }} git libdevil-dev make pkg-config
       - name: Build with GNU GCC ${{ matrix.version }}
         run: |
           export CXX=g++-${{ matrix.version }}

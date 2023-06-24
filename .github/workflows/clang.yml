@@ -3,18 +3,33 @@ name: Clang
 on: push
 
 jobs:
-  build_ubuntu_clang:
-    runs-on: ubuntu-20.04
+  clang:
     strategy:
+      fail-fast: false
       matrix:
-        version: [8, 9, 10]
+        include:
+          - version: 8
+            os: ubuntu-20.04
+          - version: 9
+            os: ubuntu-20.04
+          - version: 10
+            os: ubuntu-20.04
+          - version: 11
+            os: ubuntu-22.04
+          - version: 12
+            os: ubuntu-22.04
+          - version: 13
+            os: ubuntu-22.04
+          - version: 14
+            os: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v3
       - name: Install Debian packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends catch cmake clang-${{ matrix.version }} git libdevil-dev make pkg-config
+          sudo apt-get install -y --no-install-recommends cmake clang-${{ matrix.version }} git libdevil-dev make pkg-config
       - name: Build with Clang ${{ matrix.version }}
         run: |
           export CXX=clang++-${{ matrix.version }}
