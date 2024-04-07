@@ -1,0 +1,51 @@
+name: Build Debian packages
+
+#on:
+#  push:
+#    tags:
+#      - v*
+on: push
+
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - image: 'debian:11'
+          pack-name: 'debian_11'
+        - image: 'debian:12'
+          pack-name: 'debian_12'
+        - image: 'ubuntu:20.04'
+          pack-name: 'ubuntu_20_04'
+        - image: 'ubuntu:22.04'
+          pack-name: 'ubuntu_22_04'
+    runs-on: ubuntu-22.04
+    container: ${{ matrix.image }}
+    steps:
+      - name: Install Debian packages
+        run: |
+          apt-get update && apt-get upgrade -y
+          apt-get install -y --no-install-recommends build-essential bzip2 ca-certificates debhelper devscripts fakeroot g++ git lsb-release tar wget
+          apt-get install -y --no-install-recommends cmake g++ libdevil-dev pkg-config
+      # Checks-out the repository under $GITHUB_WORKSPACE.
+      - name: Git checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Prepare Git repository
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git fetch --force --tags
+      - name: Build package
+        run: |
+          export CXX=g++
+          export CC=gcc
+          cd "$GITHUB_WORKSPACE"
+          ./ci/gitlab-02-create-package.sh
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-${{ matrix.pack-name }}
+          path: dds2png*.deb
+          if-no-files-found: error
