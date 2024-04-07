@@ -1,10 +1,9 @@
 name: Build Debian packages
 
-#on:
-#  push:
-#    tags:
-#      - v*
-on: push
+on:
+  push:
+    tags:
+      - v*
 
 jobs:
   package:
