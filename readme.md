@@ -21,7 +21,7 @@ easier to find compiler options for the installed libraries.
 It also helps to have Git, a distributed version control system, on your build
 system to get the latest source code directly from the Git repository.
 
-All of that can usually be installed be typing
+All of that can usually be installed by typing
 
     # Debian-based systems
     apt-get install cmake g++ git libdevil-dev pkg-config
