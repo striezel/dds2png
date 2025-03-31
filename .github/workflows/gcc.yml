@@ -8,8 +8,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - version: 8
-            os: ubuntu-20.04
           - version: 9
             os: ubuntu-22.04
           - version: 10

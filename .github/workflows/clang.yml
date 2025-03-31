@@ -8,14 +8,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - version: 7
-            os: ubuntu-20.04
-          - version: 8
-            os: ubuntu-20.04
-          - version: 9
-            os: ubuntu-20.04
-          - version: 10
-            os: ubuntu-20.04
           - version: 11
             os: ubuntu-22.04
           - version: 12
@@ -27,6 +19,8 @@ jobs:
           - version: 16
             os: ubuntu-24.04
           - version: 18
+            os: ubuntu-24.04
+          - version: 19
             os: ubuntu-24.04
     runs-on: ${{ matrix.os }}
     steps:
