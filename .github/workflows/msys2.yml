@@ -11,6 +11,8 @@ jobs:
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: msys2/setup-msys2@v2
         with:
           msystem: mingw64
@@ -37,3 +39,38 @@ jobs:
           export MSYSTEM=MINGW64
           cd "$GITHUB_WORKSPACE"/build
           ctest -V
+      - name: Build with statically linked standard libraries
+        run: |
+          export MSYSTEM=MINGW64
+          export CXX=g++
+          export CC=gcc
+          cd "$GITHUB_WORKSPACE"
+          mkdir build_static_std_libs
+          cd build_static_std_libs
+          cmake ../ -DENABLE_LTO=ON -DENABLE_STATIC_STANDARD_LIBRARIES=ON
+          cmake --build . -j2
+      - name: Tests of build with statically linked standard libraries
+        run: |
+          export MSYSTEM=MINGW64
+          cd "$GITHUB_WORKSPACE"/build_static_std_libs
+          ctest -V
+      - name: Gather build artifacts
+        run: |
+          export MSYSTEM=MINGW64
+          cd "$GITHUB_WORKSPACE"
+          mkdir artifacts
+          ./ci/copy-dll-dependencies.sh build_static_std_libs/src/dds2png.exe artifacts/
+          cp LICENSE artifacts/
+          cp readme.md artifacts/
+          cp changelog.md artifacts/
+          cp documentation/third-party.md artifacts/
+          VERSION=$(git describe --always)
+          mv artifacts dds2png_${VERSION}
+          '/c/Program Files/7-Zip/7z.exe' a -r dds2png_${VERSION}.zip dds2png_${VERSION}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dds2png-win64
+          if-no-files-found: error
+          path: |
+            dds2png*.zip
