@@ -39,27 +39,27 @@ jobs:
           export MSYSTEM=MINGW64
           cd "$GITHUB_WORKSPACE"/build
           ctest -V
-      - name: Build with statically linked standard libraries
+      - name: Build for packaging
         run: |
           export MSYSTEM=MINGW64
           export CXX=g++
           export CC=gcc
           cd "$GITHUB_WORKSPACE"
-          mkdir build_static_std_libs
-          cd build_static_std_libs
-          cmake ../ -DENABLE_LTO=ON -DENABLE_STATIC_STANDARD_LIBRARIES=ON
+          mkdir build_package
+          cd build_package
+          cmake ../ -DENABLE_LTO=ON # -DENABLE_STATIC_STANDARD_LIBRARIES=ON
           cmake --build . -j2
-      - name: Tests of build with statically linked standard libraries
+      - name: Tests of build for packaging
         run: |
           export MSYSTEM=MINGW64
-          cd "$GITHUB_WORKSPACE"/build_static_std_libs
+          cd "$GITHUB_WORKSPACE"/build_package
           ctest -V
       - name: Gather build artifacts
         run: |
           export MSYSTEM=MINGW64
           cd "$GITHUB_WORKSPACE"
           mkdir artifacts
-          ./ci/copy-dll-dependencies.sh build_static_std_libs/src/dds2png.exe artifacts/
+          ./ci/copy-dll-dependencies.sh build_package/src/dds2png.exe artifacts/
           cp LICENSE artifacts/
           cp readme.md artifacts/
           cp changelog.md artifacts/
