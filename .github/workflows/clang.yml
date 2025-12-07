@@ -25,7 +25,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       # Checks-out the repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
       - name: Install Debian packages
         run: |
           sudo apt-get update
