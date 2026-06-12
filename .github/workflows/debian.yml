@@ -23,6 +23,12 @@ jobs:
         - image: 'debian:12'
           pack-name: 'debian_12_arm'
           os: ubuntu-24.04-arm
+        - image: 'debian:13'
+          pack-name: 'debian_13'
+          os: ubuntu-24.04
+        - image: 'debian:13'
+          pack-name: 'debian_13_arm'
+          os: ubuntu-24.04-arm
         - image: 'ubuntu:20.04'
           pack-name: 'ubuntu_20_04'
           os: ubuntu-24.04
