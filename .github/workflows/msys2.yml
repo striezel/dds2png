@@ -69,9 +69,10 @@ jobs:
           mv artifacts dds2png_${VERSION}
           '/c/Program Files/7-Zip/7z.exe' a -r dds2png_${VERSION}.zip dds2png_${VERSION}
       - name: Upload artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dds2png-win64
+          archive: false
           if-no-files-found: error
           path: |
             dds2png*.zip
