@@ -1,4 +1,4 @@
-image: debian:12-slim
+image: debian:13-slim
 
 # Build with GCC / G++.
 build_gcc:
@@ -27,8 +27,8 @@ build_clang:
     - ctest -V
 
 # Debian package creation
-package_debian12:
-  image: debian:12
+package_debian13:
+  image: debian:13
   stage: build
   before_script:
     - ./ci/gitlab-01-install-dependencies.sh
