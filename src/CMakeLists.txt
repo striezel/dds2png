@@ -67,3 +67,7 @@ message("GIT_TIME is ${GIT_TIME}.")
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/util/GitInfos.template.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/util/GitInfos.cpp
                ESCAPE_QUOTES)
+
+include(GNUInstallDirs)
+install (TARGETS dds2png
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
