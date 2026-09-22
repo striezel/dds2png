@@ -10,6 +10,21 @@ PNG files.
 
 It is still in an early stage of development.
 
+## Usage
+
+    dds2png [OPTIONS]
+    dds2png -i file.dds -o file.png
+
+    options:
+      -? | --help             - shows this help message
+      -v | --version          - shows version information
+      -i FILE | --input FILE  - sets the file name of the DDS file to convert.
+      -o FILE | --output FILE - sets the file name of the PNG file to produce.
+
+## History of changes
+
+A changelog is available in [changelog.md](./changelog.md).
+
 ## Building from source
 
 ### Prerequisites
@@ -56,21 +71,6 @@ If you want to run the test suite, too, then there is one more step:
 
 For information how to build dds2png on Windows, see the
 [build instructions for MSYS2](./documentation/msys2-build.md).
-
-## Usage
-
-    dds2png [OPTIONS]
-    dds2png -i file.dds -o file.png
-
-    options:
-      -? | --help             - shows this help message
-      -v | --version          - shows version information
-      -i FILE | --input FILE  - sets the file name of the DDS file to convert.
-      -o FILE | --output FILE - sets the file name of the PNG file to produce.
-
-## History of changes
-
-A changelog is available in [changelog.md](./changelog.md).
 
 ## Copyright and Licensing
 
