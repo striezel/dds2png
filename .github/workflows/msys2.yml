@@ -24,7 +24,7 @@ jobs:
             mingw-w64-x86_64-devil
             mingw-w64-x86_64-gcc
             mingw-w64-x86_64-ninja
-            mingw-w64-x86_64-pkg-config
+            mingw-w64-x86_64-pkgconf
       - name: Build
         run: |
           export MSYSTEM=MINGW64
