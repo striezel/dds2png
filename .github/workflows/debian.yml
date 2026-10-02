@@ -11,12 +11,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - image: 'debian:11'
-          pack-name: 'debian_11'
-          os: ubuntu-26.04
-        - image: 'debian:11'
-          pack-name: 'debian_11_arm'
-          os: ubuntu-26.04-arm
         - image: 'debian:12'
           pack-name: 'debian_12'
           os: ubuntu-26.04
