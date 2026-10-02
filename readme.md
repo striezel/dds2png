@@ -8,8 +8,6 @@
 dds2png is a command line tool that converts DDS (DirectDraw Surface) files into
 PNG files.
 
-It is still in an early stage of development.
-
 ## Usage
 
     dds2png [OPTIONS]
