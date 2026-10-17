@@ -10,7 +10,7 @@ on Windows operating systems. Those can be used to build dds2png.
 ### MSYS2
 
 First, download the MSYS2 installer from <https://www.msys2.org/#installation>
-and run it. After that is done, open "MSYS2 MinGW x64" from the start menu. This
+and run it. After that is done, open "MSYS2 UCRT64" from the start menu. This
 will open a command prompt window. All following steps are done there.
 
 If you haven't done it yet, update any existing base packages by typing
@@ -34,7 +34,7 @@ system to get the latest source code directly from the Git repository.
 All of that can usually be installed be typing
 
 ```bash
-pacman -S git mingw-w64-x86_64-cmake mingw-w64-x86_64-gcc mingw-w64-x86_64-devil mingw-w64-x86_64-ninja mingw-w64-x86_64-pkgconf
+pacman -S git mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-devil mingw-w64-ucrt-x86_64-ninja mingw-w64-ucrt-x86_64-pkgconf
 ```
 
 into the MSYS2 command prompt.
