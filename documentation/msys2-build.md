@@ -10,8 +10,8 @@ on Windows operating systems. Those can be used to build dds2png.
 ### MSYS2
 
 First, download the MSYS2 installer from <https://www.msys2.org/#installation>
-and run it. After that is done, open "MSYS2 UCRT64" from the start menu. This
-will open a command prompt window. All following steps are done there.
+and run it. After that is done, open "MSYS2 MinGW UCRT x64" from the start menu.
+This will open a command prompt window. All following steps are done there.
 
 If you haven't done it yet, update any existing base packages by typing
 
